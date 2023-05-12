@@ -1,8 +1,0 @@
-trl[peft]
-bitsandbytes
-loralib
-git+https://github.com/huggingface/transformers.git@main
-wandb
-evaluate
-sklearn
-scikit-learn

@@ -13,7 +13,7 @@ class ModelTrainer:
         os.environ["WANDB_DISABLED"] = "true"
         context_length = 64
         # load datasets
-        raw_datasets = load_dataset("json", data_dir="datasets/base-chat/OIG/")
+        raw_datasets = load_dataset("json", data_dir="../../datasets/en")
         raw_datasets = raw_datasets.remove_columns("metadata")
         print(raw_datasets)
         # create validation set
@@ -87,10 +87,10 @@ class ModelTrainer:
             per_device_train_batch_size=32,
             per_device_eval_batch_size=32,
             evaluation_strategy="steps",
-            eval_steps=3_00,
+            eval_steps=1,
             logging_steps=5_000,
             gradient_accumulation_steps=8,
-            num_train_epochs=1,
+            num_train_epochs=10,
             weight_decay=0.1,
             warmup_steps=1_000,
             lr_scheduler_type="cosine",
@@ -115,6 +115,6 @@ class ModelTrainer:
 
 
 if __name__ == "__main__":
-    model = "ChatBase_125M"
+    model = "BocconiGPT_Multi_125M"
     trainer = ModelTrainer(model)
     trainer.train()

@@ -32,6 +32,6 @@ class TokenizerTrainer:
 
 
 if __name__ == "__main__":
-    model = "ChatBase_125M"
+    model = "BocconiGPT_micro_125M"
     trainer = TokenizerTrainer(model, "gpt2")
     trainer.train()
